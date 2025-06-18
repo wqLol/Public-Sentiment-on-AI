@@ -15,4 +15,4 @@ params = {
 req = rq.get(url,params=params)
 print(req.url)
 with open('test.txt', 'w') as f:
-    f.write(str(req.content))  
+    f.write(str(req.content))
