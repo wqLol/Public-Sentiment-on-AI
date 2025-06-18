@@ -8,19 +8,20 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 
 
-def getVideo(query):
+def getVideo(query, startDate, endDate):
     api_service_name = "youtube"
     api_version = "v3"
-    client_secrets_file = "YOUR_CLIENT_SECRET_FILE.json"
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=key)
 
     request = youtube.search().list(
         part="snippet",
-        maxResults=25,
-        q="surfing"
+        maxResults=5,
+        publishedAfter=startDate,
+        publishedBefore=endDate,
+        q=query
     )
     response = request.execute()
 
-    print(response)
+    return response
