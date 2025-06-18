@@ -1,8 +1,21 @@
 from getVideos import getVideo
-import datetime
+import datetime, json
 
-startDate = datetime.datetime(2020, 5, 1)
-endDate = datetime.datetime(2020, 6, 1)
-test = getVideo('test', startDate, endDate)
 
-print(test)
+
+json.loads('{}')
+
+for year in range(2015,2016):
+    for month in range(1, 3):
+        cf = open('out.json', 'r')
+        data = json.load(cf)
+        cf.close()
+        with open('out.json', 'w') as f:
+
+            startDate = datetime.datetime(year, month, 1).isoformat() + 'Z'
+            endDate = datetime.datetime(year, month, 1).isoformat() + 'Z'
+
+            gdata = getVideo('fortnite', startDate, endDate)
+            data |= gdata
+            f.write(json.dumps(data))
+# print(test)
