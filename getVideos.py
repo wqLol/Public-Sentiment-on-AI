@@ -17,7 +17,7 @@ def getVideo(query, startDate, endDate):
 
     request = youtube.search().list(
         part="snippet",
-        maxResults=5,
+        maxResults=25,
         publishedAfter=startDate,
         publishedBefore=endDate,
         q=query

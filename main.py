@@ -24,7 +24,7 @@ ctime = datetime.datetime(startYear, startMonth, 1)
 cf = open('out.json', 'r')
 data = json.load(cf)
 cf.close()
-for year in range(2012,2013):
+for year in range(2012,2014):
     for month in range(1, 13):
         ftime = ctime + dateutil.relativedelta.relativedelta(months=1)
         print(ctime)
