@@ -29,7 +29,7 @@ for year in range(2012,2013):
         ftime = ctime + dateutil.relativedelta.relativedelta(months=1)
         print(ctime)
 
-        gdata = getVideo('fortnite', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
+        gdata = getVideo('', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
         data["items"] += gdata["items"]
 
         ctime = ftime
