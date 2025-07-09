@@ -22,6 +22,7 @@ def getComments(youtube, videoId):
 
     request = youtube.comments().list(
         part="snippet",
+        maxResults=10,
         parentId = videoId
     )
     
