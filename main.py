@@ -17,12 +17,12 @@ youtube = googleapiclient.discovery.build(
 cf = open('out.json', 'r')
 data = json.load(cf)
 cf.close()
-for year in range(2012,2014):
+for year in range(2012,2019):
     for month in range(1, 13):
         ftime = ctime + dateutil.relativedelta.relativedelta(months=1)
         print(ctime)
 
-        gdata = getVideo(youtube,'', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
+        gdata = getVideo(youtube,'AI', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
         data["items"] += gdata["items"]
 
         ctime = ftime

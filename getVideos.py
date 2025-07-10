@@ -8,6 +8,7 @@ def getVideo(youtube, query, startDate, endDate):
         part="snippet",
         maxResults=25,
         type="video",
+        order='viewCount',
         publishedAfter=startDate,
         publishedBefore=endDate,
         q=query
