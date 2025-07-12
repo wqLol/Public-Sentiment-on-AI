@@ -4,7 +4,7 @@ import googleapiclient.discovery
 from apikey import key
 
 
-startYear = 2012
+startYear = 2018
 startMonth = 1
 ctime = datetime.datetime(startYear, startMonth, 1)
 
@@ -17,11 +17,13 @@ youtube = googleapiclient.discovery.build(
 cf = open('out.json', 'r')
 data = json.load(cf)
 cf.close()
-for year in range(2012,2019):
+for year in range(2018,2026):
     for month in range(1, 13):
+        if ctime > datetime.datetime.now(): 
+            break
         ftime = ctime + dateutil.relativedelta.relativedelta(months=1)
         print(ctime)
-
+        
         gdata = getVideo(youtube,'AI', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
         data["items"] += gdata["items"]
 
