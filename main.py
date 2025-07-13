@@ -14,9 +14,11 @@ api_version = "v3"
 youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=key)
 
-cf = open('out.json', 'r')
-data = json.load(cf)
-cf.close()
+# cf = open('out.json', 'r')
+# data = json.load(cf)
+# cf.close()
+
+data = {"items": []}
 for year in range(2018,2026):
     for month in range(1, 13):
         if ctime > datetime.datetime.now(): 
