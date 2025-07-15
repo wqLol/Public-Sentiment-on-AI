@@ -26,7 +26,7 @@ for year in range(2018,2026):
         ftime = ctime + dateutil.relativedelta.relativedelta(months=1)
         print(ctime)
         
-        gdata = getVideo(youtube,'AI', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
+        gdata = getVideo(youtube,'future of AI', ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
         data["items"] += gdata["items"]
 
         ctime = ftime

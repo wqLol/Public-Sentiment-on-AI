@@ -9,8 +9,8 @@ outdata = { "items": [] }
 for video in data["items"]:
     title = video["snippet"]["title"]
     description = video["snippet"]["description"]
-    titlelang = langdetect.detect(title)
-    descriptionlang = langdetect.detect(title)
+    titlelang =  langdetect.detect(title) if title else "na"
+    descriptionlang = langdetect.detect(description) if description else "na"
     if titlelang == "en" or descriptionlang == "en": 
         outdata["items"].append(video)
     else:
