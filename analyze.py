@@ -1,17 +1,3 @@
-import nltk
+from transformers import pipeline
+classifier = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
 
-f = open('input.txt', 'r')
-data = f.read()
-text = nltk.Text(data.split(" "))
-f.close()
-
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
-analyzer = SentimentIntensityAnalyzer()
-
-print(data)
-score = analyzer.polarity_scores(data)
-
-print(score)
-
-# print(nltk.FreqDist(text).most_common(50))

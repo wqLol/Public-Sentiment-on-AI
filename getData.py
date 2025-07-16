@@ -23,10 +23,10 @@ def getVideo(youtube, query, startDate, endDate):
 
 def getComments(youtube, videoId):
 
-    request = youtube.comments().list(
+    request = youtube.commentThreads().list(
         part="snippet",
-        maxResults=10,
-        parentId = videoId
+        maxResults=100,
+        videoId = videoId
     )
     
     response = request.execute()
