@@ -1,4 +1,6 @@
 import json
+
+import googleapiclient.http
 from getData import getComments
 
 import googleapiclient.discovery
@@ -22,8 +24,20 @@ print(data["items"][0])
 for vid in data["items"]:
    videos.append(vid["id"]["videoId"])
 
-comments = {"items": []}
+comments = {"data": []}
+
+
+x = 1
+progressBarMax = len(videos)
 for vid in videos:
-    comments["items"] += getComments(youtube, vid)["items"]
-with open('comments.json') as f:
+    try:
+        comments["data"].append(getComments(youtube, vid))
+    except googleapiclient.http.HttpError as e:
+        print(e)
+    
+    print(f"{x}/{progressBarMax}")
+    x += 1
+       
+       
+with open('comments.json', 'w') as f:
     json.dump(comments, f)
