@@ -16,22 +16,14 @@ f = open('filtered.json')
 data = json.load(f)
 f.close()
 
-videos = []
-
-print(data["items"][0])
-
-
-for vid in data["items"]:
-   videos.append(vid["id"]["videoId"])
-
 comments = {"data": []}
 
-
 x = 1
-progressBarMax = len(videos)
-for vid in videos:
+progressBarMax = len(data["items"])
+for video in data["items"]:
+    vid = video["id"]["videoId"]
     try:
-        comments["data"].append(getComments(youtube, vid))
+        comments["data"].append([video["snippet"]["title"], getComments(youtube, vid)])
     except googleapiclient.http.HttpError as e:
         print(e)
     
