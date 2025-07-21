@@ -23,7 +23,7 @@ progressBarMax = len(data["items"])
 for video in data["items"]:
     vid = video["id"]["videoId"]
     try:
-        comments["data"].append([video["snippet"]["title"], getComments(youtube, vid)])
+        comments["data"].append([video, getComments(youtube, vid)])
     except googleapiclient.http.HttpError as e:
         print(e)
     
