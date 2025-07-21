@@ -2,7 +2,7 @@ from getData import getVideo
 import datetime, dateutil, json
 import googleapiclient.discovery
 from apikey import key
-from sys import quit
+from sys import exit
 
 
 startYear = 2018
@@ -16,7 +16,7 @@ youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=key)
 
 
-data = {"data": []}
+data = {"items": []}
 search = "future of artificial intelligence"
 
 
@@ -30,14 +30,14 @@ for year in range(2018,2026):
             gdata = getVideo(youtube,search, ctime.isoformat() + 'Z', ftime.isoformat() + 'Z')
         except Exception as e:
             print(e)
-            with open('out.json','w') as f:
+            with open(f'./data/out {search}.json','w') as f:
                 f.write(json.dumps(data))
-                quit()
+                exit()
                 
                 
         data["items"] += gdata["items"]
 
         ctime = ftime
-with open('out.json','w') as f:
+with open(f'./data/out {search}.json','w') as f:
     f.write(json.dumps(data))
 # print(test)
