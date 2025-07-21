@@ -1,2 +1,2 @@
-# A linguistical Analysis of Youtube Comments
-Using a good sample of data from youtube throughout the years, we can generate a good dataset that can be used to show how language has changed on the platform, and how different users reply to different video tags and titles.
+# How sentiment towards AI has changed
+Using a good sample of data from youtube throughout the years, we can generate a good dataset that can be used to show how sentiment and public opinon has changed on the platform over time.
