@@ -17,7 +17,7 @@ youtube = googleapiclient.discovery.build(
 
 
 data = {"items": []}
-search = "future of artificial intelligence"
+search = "Artificial Intelligence news"
 
 
 for year in range(2018,2026):
